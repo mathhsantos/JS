@@ -1,0 +1,50 @@
+body{
+    margin: 0px;
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    background: black url('../imagens/bg.jpg') no-repeat fixed center center;
+    background-size: cover;
+}
+
+.mosca1{
+    width: 50px;
+    height: 50px; 
+}
+
+.mosca2{
+    width: 70px;
+    height: 70px; 
+}
+
+.mosca3{
+    width: 90px;
+    height: 90px; 
+}
+
+.painel{
+    margin: 10px;
+    position: absolute;
+    bottom: 0px;
+    width: 190px;
+    padding: 20px;
+    left: 0px;
+    border: 1px solid white;
+    background-color: rgba(255, 255, 255, 0.534);
+}
+
+.vida{
+    float: left;
+    margin-bottom: 5px;
+}
+
+.relogio{
+    float: left;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.container{
+    padding-bottom: 20px;
+    background-color: rgba(0, 0, 0, 0.527);
+}

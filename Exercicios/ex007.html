@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        *{
+            margin: 10px;
+        }
+    </style>
+    <title>Outro evento DOM</title>
+</head>
+<body>
+    <h1>Somando 2 numeros</h1>
+            <input type="number" name="n1" id="n1"> +
+            <input type="number" name="n2" id="n2"> 
+            <input type="buttom" value="Somar"e onclick="resultado()" style="width: 40px;">
+            <div id="result"></div>
+    <script>
+        function resultado(){
+            var numero1 = Number(n1.value)
+            var numero2 = Number(n2.value)
+            var soma = numero1+numero2
+
+            if(soma%2 == 0){
+                result.innerText = "O resultado é: " + soma + ", e é um numero par"
+            }else[
+                result.innerText = "O resultado é: " + soma + ", e é um numero impar"
+            ]
+        }
+    </script>
+</body>
+</html>
