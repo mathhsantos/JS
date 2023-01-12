@@ -43,7 +43,7 @@ function posicao(){
     posicaox = posicaox < 0 ? 0 : posicaox
     posicaoy = posicaoy < 0 ? 0 : posicaoy
     
-    //criando img da mosca via DOM
+    // Criando img da mosca via DOM
     var imgMosca = document.createElement('img')
 
     // Atribuindo o estilo a img
