@@ -1,15 +1,26 @@
 var altura = ''
 var largura = ''
 var vidas = 1
-var tempo = 11
+var tempo = 21
+
+var nivel = window.location.search
+nivel = nivel.replace('?', '')
 
 AjustaTamanhoPalco()
 
+// inicia a contagem decrescente do relógio
 var relogio = setInterval(function(){
     tempo -= 1
-    document.getElementById('tempo').innerHTML = tempo}, 1000)
 
-setInterval(function(){posicao()}, 1000)
+    if(tempo < 0){
+        clearInterval(relogio)
+        clearInterval(criarMosca)
+        window.location.href = 'vitoria.html'
+    }else{
+        document.getElementById('tempo').innerHTML = tempo
+    }}, 1000)
+
+var criarMosca = setInterval(function(){posicao()}, nivel)
 
 //gerando posições diferentes na tela
 function posicao(){
@@ -32,7 +43,7 @@ function posicao(){
     posicaox = posicaox < 0 ? 0 : posicaox
     posicaoy = posicaoy < 0 ? 0 : posicaoy
     
-    //criando img html via DOM
+    //criando img da mosca via DOM
     var imgMosca = document.createElement('img')
 
     // Atribuindo o estilo a img
@@ -54,8 +65,6 @@ function posicao(){
 function AjustaTamanhoPalco(){
     altura = window.innerHeight
     largura = window.innerWidth
-
-    console.log(largura, altura)
 }
 
 // Decidir qual vai ser o tamanho do mosquito na tela
