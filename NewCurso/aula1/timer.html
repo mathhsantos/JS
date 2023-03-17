@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap');
+
+        body {
+            background-color: rgb(13, 120, 153);
+            font-family: 'Roboto Condensed', sans-serif;
+            line-height: 15px;
+        }
+
+        .container {
+            width: 550px;
+            background-color: white;
+        }
+
+        h3,
+        h4 {
+            font-weight: bold;
+        }
+
+        #resultado {
+            font-weight: bold;
+        }
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+    <section class="container p-4 mt-4 mb-4 rounded">
+        <div class="row  mt-3">
+            <div class="col">
+                <h3 id="resultado">Meu timer</h3>
+                <div>
+                    <h3 id="timer">00:00:00<h3>
+                </div>
+                <div>
+                    <button onclick="iniciaContagem()" class="btn btn-primary">Iniciar</button>
+                    <button onclick="pararContagem()" class="btn btn-primary">Parar</button>
+                    <button onclick="zerar()" class="btn btn-primary">Zerar</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+    <script>
+        let data = new Date('01-01-2023 00:00:00')
+        let timer = document.getElementById('timer')
+        let intervalo = []
+        let controlador = false
+
+        function iniciaContagem() {
+            timer.style.color = 'black'
+
+            if(controlador === true){
+                return
+            }
+
+            intervalo[0] = setInterval(function () {
+
+                data.setMilliseconds(data.getMilliseconds() + 1000)
+                
+                let time = data.toLocaleTimeString('pt-br', {
+                    hour12: false
+                })
+
+                timer.innerHTML = time
+
+            }, 1000)
+
+            controlador = true
+        }
+
+        function pararContagem(){
+            timer.style.color = 'red'
+            clearInterval(intervalo[0])
+            controlador = false
+        }
+
+        function zerar(){
+            data.setHours(0)
+            data.setMinutes(0)
+            data.setSeconds(0)
+            data.setMilliseconds(0)
+            timer.style.color = 'black'
+            timer.innerHTML = '00:00:00'
+            clearInterval(intervalo[0])
+            controlador = false
+        }
+    </script>
+</body>
+
+</html>
